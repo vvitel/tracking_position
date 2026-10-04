@@ -4,6 +4,7 @@ from position_estimation.get_camera_parameters import get_camera_parameters
 from position_estimation.pose_estimation import pose_estimation
 from position_estimation.apply_homography import apply_homography
 from position_estimation.temporal_association import temporal_association
+from position_estimation.interpolate_filter import show_plot
 
 #définition des arguments
 ap = argparse.ArgumentParser()
@@ -32,3 +33,4 @@ apply_homography(H)
 #association temporelle
 window_size = 15
 temporal_association(window_size)
+show_plot(window_size)
