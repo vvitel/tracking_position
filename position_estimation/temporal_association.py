@@ -1,7 +1,7 @@
+import hdbscan
 import json
 import numpy as np
 from scipy.optimize import linear_sum_assignment
-from sklearn.cluster import DBSCAN
 
 def temporal_association(window_size):
     #ouvrir les données
@@ -26,8 +26,8 @@ def temporal_association(window_size):
         X = bloc[:, 1:3]
 
         #clustering dbscan
-        dbscan = DBSCAN(eps=1, min_samples=5)
-        labels = dbscan.fit_predict(X)
+        clusterer = hdbscan.HDBSCAN(min_cluster_size=7)
+        labels = clusterer.fit_predict(X)
         bloc = np.column_stack((bloc, labels))
 
         for c in np.unique(labels):
