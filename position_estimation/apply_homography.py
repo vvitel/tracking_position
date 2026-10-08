@@ -68,5 +68,5 @@ def apply_homography(H):
         dico_match[frame] = dico_frame
 
     #enregistrement 
-    with open("data_pose.json", "w") as f:
+    with open("data_homography.json", "w") as f:
         json.dump(dico_match, f)
