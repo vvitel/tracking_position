@@ -68,6 +68,10 @@ def main():
         return 2
 
     d = res.to_dict()
+
+    wanted = {"far_corner_l", "far_corner_r", "near_corner_l", "near_corner_r"}
+    keypoints = {kp["name"]: kp["image_px"] for kp in d["keypoints"] if kp["name"] in wanted}
+
     
     # Save results
     calibration = {
@@ -78,7 +82,8 @@ def main():
             "cx": d["lens"]["cx"],
             "cy": d["lens"]["cy"]
             },
-            "homography": d["homography"]["matrix_undistorted_px"]
+            "homography": d["homography"]["matrix_undistorted_px"],
+            "keypoints": keypoints
         }
     
     with open("./calibration.json", "w") as f:

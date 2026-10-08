@@ -22,15 +22,15 @@ nb_frame = args.nb_frame
 subprocess.run(f"python ./padel-court-detector/detect_court.py {video_path}", shell=True)
 
 #parmètres caméra
-K, H, dist_coeffs = get_camera_parameters()
+K, H, dist_coeffs, keypoints = get_camera_parameters()
 
 #estimation de la pose
-pose_estimation(video_path, start, nb_frame, step, K, dist_coeffs)
+pose_estimation(video_path, start, nb_frame, step, K, dist_coeffs, keypoints)
 
 #appliquer l'homographie
 apply_homography(H)
 
 #association temporelle
-window_size = 15
-temporal_association(window_size)
-show_plot(window_size)
+#window_size = 15
+#temporal_association(window_size)
+#show_plot(window_size)

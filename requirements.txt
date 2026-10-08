@@ -4,3 +4,4 @@ opencv-contrib-python==4.11.0.86
 ultralytics==8.4.171
 tqdm==4.67.1
 scikit-learn==1.7.0
+scipy==1.15.3

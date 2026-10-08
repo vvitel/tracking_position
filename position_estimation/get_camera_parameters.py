@@ -24,4 +24,6 @@ def get_camera_parameters():
         0
     ], dtype=np.float64)
 
-    return K, H, dist_coeffs
+    keypoints = cam["keypoints"]
+
+    return K, H, dist_coeffs, keypoints
